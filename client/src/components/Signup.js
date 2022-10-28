@@ -36,7 +36,7 @@ export default function Signup(){
     return(
         <>
             <div className="signup-div">
-                <Card className="opacity-50">
+                <Card>
                     <Card.Body>
                         <h2 className="text-center mb-4">Sign Up</h2>
                         {error && <Alert variant="danger">{error}</Alert>}
