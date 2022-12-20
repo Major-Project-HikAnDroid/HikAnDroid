@@ -3,7 +3,7 @@ import {Form, Button, Card, Alert} from "react-bootstrap";
 import {useAuth} from "../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import {db} from "../firebase"
-import {collection, getDocs, addDoc} from "firebase/firestore";
+import {collection, getDocs, addDoc, Timestamp} from "firebase/firestore";
 
 export default function PublishApplication(){
     const emailRef = useRef();
@@ -20,7 +20,7 @@ export default function PublishApplication(){
 
 
     const createApplication = async () => {
-        await addDoc(appInfoRef, {devEmail: currentUser.email, devName: newDevName, devAge: newDevAge, appRepository: newAppRepository});
+        await addDoc(appInfoRef, {devEmail: currentUser.email, devName: newDevName, devAge: newDevAge, appRepository: newAppRepository, timestamp: Timestamp.now()});
     }
 
     useEffect(() => {
